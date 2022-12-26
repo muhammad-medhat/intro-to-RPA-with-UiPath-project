@@ -1,0 +1,2 @@
+For each file in the folder that follows this naming convention “CustomerName_Report_DDMMYYYY.xlsx/.pdf”, create a folder named “YYYY”(Date format) depending on the last four characters of the file name, which denotes the year in the “YYYY”(date format). For example, if the file name is “Heba_Report_13072019.pdf” then create a folder with the name “2019” and move the file into this folder.
+If any of the files don't follow the naming convention, then create a new folder with today’s date (format MMDDYYYY) and move them there.
