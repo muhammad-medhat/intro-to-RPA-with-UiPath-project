@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="805.6,2410.4" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1410.4,3164" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="42">
+    <scg:List x:TypeArguments="x:String" Capacity="44">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -43,10 +43,12 @@
       <x:String>UiPath.Activities.System.Compression.Workflow</x:String>
       <x:String>UiPath.Platform.Triggers</x:String>
       <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="63">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -100,30 +102,41 @@
       <AssemblyReference>System.IO.Packaging</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="592,2388" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="980,4816.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="dPath" />
-      <Variable x:TypeArguments="x:String" Name="v" />
       <Variable x:TypeArguments="x:String" Name="fileName" />
       <Variable x:TypeArguments="x:String" Name="toPath" />
       <Variable x:TypeArguments="si:DirectoryInfo" Name="dataFolder" />
       <Variable x:TypeArguments="x:String" Default="[System.Environment.UserName]" Name="username" />
       <Variable x:TypeArguments="x:String" Default="[System.Environment.CurrentDirectory]" Name="currentPath" />
+      <Variable x:TypeArguments="x:String" Name="dir" />
+      <Variable x:TypeArguments="si:DirectoryInfo" Name="dataDir" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome:to download file" sap:VirtualizedContainerService.HintSize="529.6,1962.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="12b18c6d-187a-4faa-9243-8f172b15c095" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome:to download file" sap:VirtualizedContainerService.HintSize="917.6,52.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="12b18c6d-187a-4faa-9243-8f172b15c095" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1745.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1955.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -138,11 +151,11 @@
                 <InArgument x:TypeArguments="x:String">["C:\Users\"+ username+ "\Downloads"]</InArgument>
               </Assign.Value>
             </Assign>
-            <uix:NClick ClickType="Single" DisplayName="Click 'main Switch'" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="12b18c6d-187a-4faa-9243-8f172b15c095" Version="V3">
+            <uix:NClick ClickType="Single" DisplayName="Click 'main Switch'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="12b18c6d-187a-4faa-9243-8f172b15c095" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://github.com/udacity/cd00284-intro-to-RPA-with-UiPath-project" DesignTimeRectangle="1190, 257, 128, 40" DesignTimeScaleFactor="1.25" FriendlyName="'Code'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;turbo-frame&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;get-repo&amp;gt;details&amp;gt;summary' parentid='repo-content-pjax-container' tag='SUMMARY' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='repo-content-pjax-container' tag='SUMMARY' class='btn-primary btn' aaname='              Code ' check:innerText='Code' /&gt;" Guid="46a371b6-6c98-4b98-8851-658433655b86" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIQAAAAsCAYAAACkCxAkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAATISURBVHhe7ZzPi5NHGMf7D/TQQ/HUg1goZYte1hVKMdRDleLSPct68lIWCvUiQhGhSJDVVfew7EGtB1eEjYLBUIKVLCIqZemWNSyuEogQ1spLEPct5AchPL7fyTtvZt53Ejc/9t3w5hn4HPI+z0wgzyfvOzMh88mnn+0ihpGwEIwGC8FotBTii0MjNPLLdzR6/gc6MPsjExFQT9QV9TXVPSDE51/vpr2nYjR6+TCNXDhIX53/lvbEx5iIgHqirqNXDos6o95q/TUhEIRB+y4eMg7GRIcv4wdEnVFvVQpNCBiz9+L3xgGYaAIpUPeAEHim4DZi6sREF9wp9l854s0pPCEw0fjmQszYiYk2qDvqrwmBZwlPIIcT1B3114TAksSUzAwHqD8LwXiwEIwGC8FosBCMBgvBaLAQjAYL0VeSlCO0PC0a44PPjgpxbOFn43XQLtYV82do7uU6WeWqKJlo9SpVSnlKPjTkdwUL0TV3n6fER3cq9Xsgdu6vSyJ2Z/V+INYNsXsJWiuLIRsNIlSbYuRWzf06h4XoCimDXfmfYnM/BeK4hhhaz1LcdopUE0MRlZ27QWaKYl78OJ3N5unpP0p+T7AQHaPKcPT6pDEHINYPKWYK7p2gtEzxeXNO/2AhOmKrMkh6l2KB1uroXaWVR6Z4kFg6QSvvbaqIfk5zHi+b75fp2r0JPffGNCUtJa+8QUuZtFGIWDpNa7YtIqLVbMplp2lcyRkUQhOiUxkkPUnxcJk20bH6nOZMcR+xjJuPVtqgnJUnS0416kVKp2TuLD0tyetVsop5ytlOYs2Zm4iLTSG8Mes2FZzxxJjuI8x6dc5770EhFCFmH18VH0CnMkhUKTCWKceIFKLsPC5McY15WnGLv/l6Vpln/EqLRTfwNiGuT65tNF5X1+lmQuZN0Mmse90TwhEHk9n6BiW9PIfUE7KQ1kLU3/6MU/a/F21Bjr9fPwhViM2y3bUQ6Iu2bUI8kN/kdbrmj3nf8kZsUVQT3/Azep5/DiHHbNlazzXaSbFdMoBQhADykdGpFKoMGMOU05LbGSqInkVa8m73LWgrj17oxaJ4YViu+oTwHll5WsqmKRngDzqt9dcxSbGdMoDQhACdStGTDIIpSr4T3alSTNIJY46LLF67O4R7i5dCFF5M6XmegD4hnDFvdrnCUaXYbhlAqEKArUrRuwwN1Ili5V2G4reU1cL8FMW9fYiPzyEqbxfE9fhrd8WAu4lX6Inmde9RIFc5/jHHaPzRE0o/a75uB0QIQwYQuhBAlaLVxlQ/ZGiAyV7enf27DasBw07l5L9Knn+VUXOKLCeG6maXu3ooYNVRsl35pBBjdGI1OKZYkTitfzuk/WNHhABSCmxT+2Ny67p3GZqMpxK0VFT2DdBqNllvMjSjrADGH/j2DJyCW2/SdPaGPh72FnKlplRiryJh2phyhPx7mQrqbyjifYNjDgI7JgQI9cctZkvsqBDM4MFCMBosBKPBQjAaASH4r3zDi/GvfPiz58j0QWMHJtqg7oE/+4rjAC7zcQDDCOoeOA4A8IEhwwfqbTwwBKhHCuEgCdMATHTYN/ORI4UAgjCGDx2LJqjnlg8dU8EzBRMNGIQlCRMNUE/UVc4Z/LQUghlGdtEHt6hcPfscEiQAAAAASUVORK5CYII=" InformativeScreenshot="eadb2b9adc1c43611259ec3be0ac8bf1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='udacity/cd00284-intro-to-RPA-with-UiPath-project: project for nd340-cq, cd0024-intro-to-RPA-with-UiPath-project' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target DesignTimeRectangle="199, 257, 1120, 40" FriendlyName="'main Switch'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;turbo-frame&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='repo-content-pjax-container' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='repo-content-pjax-container' tag='DIV' class='file-navigation mb-3 d-flex flex-items-start' aaname='                                ' check:innerText='main &amp;#xD;&amp;#xA; 2 branches&amp;#xD;&amp;#xA; 0 tags&amp;#xD;&amp;#xA;Go to file&amp;#xD;&amp;#xA;Add file&amp;#xD;&amp;#xA; Code' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -150,7 +163,7 @@
               </uix:NClick.Target>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -159,7 +172,7 @@
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://github.com/udacity/cd00284-intro-to-RPA-with-UiPath-project" DesignTimeRectangle="840, 786, 458, 26" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Download ZIP'" FullSelectorArgument="&lt;webctrl aaname='                Download ZIP ' parentid='local-panel' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                Download ZIP ' parentid='local-panel' tag='A' type='' class='d-flex flex-items-center color-fg-default text-bold no-underline' check:innerText='Download ZIP' /&gt;" Guid="3329759d-502c-4d29-ad33-df7d496f6ea8" ImageBase64="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" InformativeScreenshot="3aa6883a8f1beac869040f207d223c30.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='udacity/cd00284-intro-to-RPA-with-UiPath-project: project for nd340-cq, cd0024-intro-to-RPA-with-UiPath-project' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target DesignTimeRectangle="820, 765, 498, 68" ElementType="ListItem" FriendlyName="'Download ZIP'" FullSelectorArgument="&lt;webctrl idx='3' parentid='local-panel' tag='LI' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='local-panel' tag='LI' class='Box-row Box-row--hover-gray p-3 mt-0' aaname='   ' check:innerText='Download ZIP' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -172,7 +185,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uix:NGetText DisplayName="Get Text 'File name'" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="12b18c6d-187a-4faa-9243-8f172b15c095" ScrapingMethod="TextAttribute" TextString="[fileName]" Version="V3">
+            <uix:NGetText DisplayName="Get Text 'File name'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="12b18c6d-187a-4faa-9243-8f172b15c095" ScrapingMethod="TextAttribute" TextString="[fileName]" Version="V3">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="166, 452, 779, 28" DesignTimeScaleFactor="1.25" FriendlyName="'cd00284-intro-to-RPA-wi…'" FullSelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;ctrl name='File name:' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;ctrl name='File name:' role='combo box' automationid='' /&gt;" Guid="fd7f4309-7b0b-484b-af7e-a3d5a8756419" InformativeScreenshot="1f5c0f82d263544aeafd68c568aabdbe.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -184,7 +197,7 @@
               </uix:NGetText.Target>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -201,7 +214,7 @@
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="169, 875, 770, 22" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'cd00284-intro-to-RPA-wi…'" FullSelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" Guid="af341934-fdcf-4590-bd6f-422dafae39ae" ImageBase64="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" InformativeScreenshot="62fbfff793b3410409ec5ec5c255280f.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target DesignTimeRectangle="22, 872, 144, 28" ElementType="Text" FriendlyName="'File name'" FullSelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;ctrl name='Explorer Pane' role='pane' /&gt;&lt;ctrl name='Folder Layout Pane' role='pane' /&gt;&lt;ctrl name='Details Pane' role='pane' /&gt;&lt;ctrl name='File name:' role='text' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;ctrl name='Explorer Pane' role='pane' /&gt;&lt;ctrl name='Folder Layout Pane' role='pane' /&gt;&lt;ctrl name='Details Pane' role='pane' /&gt;&lt;ctrl name='File name:' role='text' automationid='' check:text='File name:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJQAAAAgCAYAAAD0Z1G3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHMSURBVHhe7ZZtrq0gDADfslyNa3EtLsWduBKvpX5QEIRr837cTJMJ4VC0OZ2A/4Zh2AC8QChwBaHAhTMQClyQkBGhwAWEAlcQClxBKHAFocAVhAJXEApcQahOpiX8ZyaWKV5btinKXefR7P/rSMiIUI30SIJQ8ApC1UGoTmqSpGtPueO8hj9dY93m8V6zjJukLpOOGkn+OO+/RLHO2xg9Q98/RfuP69nsu6/ok2KNYV+tZoTq5otQoVFx0yXhoaHKKdLdwJAe7R/nJWrukb9Mx/zIj/ZfolzPyPdUa0Qof7RJcZQ/wu182jPTZpynUPybXTPyhoaWBNzRF14yqAu3LFpD8j6zp7fGHAkZEaqRVJrampmH7j5HTSiz9nBC2Otpj0QoW+uDMJqke7przJGQEaEayZtUXjPz0KzK6ZLxJpSeNpcMgr7wo1A9NeZIyIhQjeRNKq+ZecP3h+VFqIfrL/3+yWt9Eaq7xhyE6uTXQh1zewLs0izRCWNoESpqfpjv8UWonWqNDcJJyIhQjeRNKq895WrD7ig96/3KS76fRAp94SehhGKNCAX/G4QCVxAKXEEocAWhwBWEAlcQClxBKHDlDIQCVxAKHBm2H33KiWhIRh0iAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -225,9 +238,9 @@
                 </uix:TargetAnchorable>
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Moving file &quot;+ dPath +&quot;\&quot; + fileName.ToString]" />
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[currentPath +&quot;\&quot; + fileName.ToString]" />
-            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[currentPath]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="433.6,160" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[dPath + &quot;\&quot;+ fileName]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Moving file &quot;+ dPath +&quot;\&quot; + fileName]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;to &quot; + path.Combine(currentPath, fileName)]" />
+            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[currentPath]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="433.6,160" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[Path.Combine(dPath, fileName)]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
@@ -236,42 +249,192 @@
       </uix:NApplicationCard.TargetApp>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="529.6,273.6" sap2010:WorkflowViewState.IdRef="CommentOut_5">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462.4,195.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Sorting Reports" sap:VirtualizedContainerService.HintSize="400,83.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <uascw:ExtractFiles Content="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" DestinationFolder="[toPath]" DestinationFolderInfo="[dataFolder]" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="True" FileToExtract="[toPath +&quot;\&quot;+ fileName]" sap:VirtualizedContainerService.HintSize="337.6,208.8" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="False">
+    <Sequence DisplayName="Sorting Reports" sap:VirtualizedContainerService.HintSize="917.6,4612" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="upr:ILocalResource[]" Name="extractedFiles" />
+        <Variable x:TypeArguments="x:String" Name="workingFilesFolder" />
+        <Variable x:TypeArguments="x:String" Name="nonformatFolderName" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="855.2,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_22" Text="[&quot;...Extracting &quot; + Path.Combine(currentPath, fileName)]" />
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="855.2,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_23" Text="[&quot;...into  &quot; + currentPath+ fileName]" />
+      <uascw:ExtractFiles File="{x:Null}" Password="{x:Null}" CodePage="Default" Content="[extractedFiles]" DestinationFolder="[currentPath]" DestinationFolderInfo="[dataFolder]" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="False" FileToExtract="[Path.Combine(currentPath, fileName)]" sap:VirtualizedContainerService.HintSize="855.2,208.8" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="False">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uascw:ExtractFiles>
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="855.2,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_27" Text="[fileName]" />
+      <Assign sap:VirtualizedContainerService.HintSize="855.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[workingFilesFolder]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[fileName.subString(0, fileName.length-4)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="855.2,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_28" Text="[dataFolder.GetDirectories(workingFilesFolder).First.ToString]" />
+      <Assign sap:VirtualizedContainerService.HintSize="855.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="si:DirectoryInfo">[dataDir]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="si:DirectoryInfo">[new DirectoryInfo(workingFilesFolder)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="855.2,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_29" Text="[&quot;data dir: &quot;+dataDir.ToString]" />
+      <ui:ForEach x:TypeArguments="si:FileInfo" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="855.2,3356" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[dataDir.GetFiles]">
+        <ui:ForEach.Body>
+          <ActivityAction x:TypeArguments="si:FileInfo">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="si:FileInfo" Name="file" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="820,3230.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Default=".*_(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})(\.pdf|\.xlsx)" Name="regex_filename" />
+                <Variable x:TypeArguments="x:Boolean" Name="isFileFormat" />
+                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matchedFiles" />
+              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </uascw:ExtractFiles>
-            <ui:InvokeProcess ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process" sap:VirtualizedContainerService.HintSize="337.6,167.2" sap2010:WorkflowViewState.IdRef="InvokeProcess_1" ProcessName="[System.IO.Directory.GetCurrentDirectory]">
-              <ui:InvokeProcess.Arguments>
-                <scg:Dictionary x:TypeArguments="x:String, Argument" />
-              </ui:InvokeProcess.Arguments>
-            </ui:InvokeProcess>
-          </Sequence>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
+              <If Condition="[file.Extension = &quot;.xlsx&quot; or file.Extension = &quot;.pdf&quot;]" DisplayName="check for file extension (xlsx or pdf)" sap:VirtualizedContainerService.HintSize="757.6,3118.4" sap2010:WorkflowViewState.IdRef="If_4">
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="680,2835.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:IsMatch BuilderPattern="(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})" DisplayName="Is Match" sap:VirtualizedContainerService.HintSize="617.6,60" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[file.Name]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\\d{3})&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})" RegexOption="IgnoreCase, Compiled" Result="[isFileFormat]" />
+                    <If Condition="[isFileFormat]" DisplayName="check file format" sap:VirtualizedContainerService.HintSize="617.6,2623.2" sap2010:WorkflowViewState.IdRef="If_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence DisplayName="move to folder (year)" sap:VirtualizedContainerService.HintSize="540,1816" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="year" />
+                            <Variable x:TypeArguments="x:String" Name="fnameNoExt" />
+                            <Variable x:TypeArguments="x:Boolean" Name="isFolderExist" />
+                            <Variable x:TypeArguments="x:String" Default="example --D:\FWD\web\Expert\Project\Sorting Annual Reports\cd00284-intro-to-RPA-with-UiPath-project-main\2019" Name="subFolderPath" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="477.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[fnameNoExt]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[Path.GetFileNameWithoutExtension(file.Name)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="477.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[year]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[fnameNoExt.Substring(fnameNoExt.Length-4)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:FolderExistsX DisplayName="Folder Exists" Exists="[isFolderExist]" sap:VirtualizedContainerService.HintSize="477.6,134.4" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[path.combine(dataFolder.FullName, dataDir.ToString, year)]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="477.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[subFolderPath]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[Path.Combine(dataFolder.FullName, dataDir.ToString, year)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="477.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_35" Text="[&quot;--&quot;+ subFolderPath]" />
+                          <If Condition="[isFolderExist]" sap:VirtualizedContainerService.HintSize="477.6,573.6" sap2010:WorkflowViewState.IdRef="If_3">
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="400,202.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="337.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_33" Text="[&quot;folder: &quot;+ year + &quot; exists&quot;]" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="400,192.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="337.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[subFolderPath]" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[subFolderPath]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="477.6,160" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="[workingFilesFolder+&quot;\&quot;+ file.Name]" />
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="477.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_36" Text="[workingFilesFolder+&quot;\&quot;+ file.Name]" />
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="477.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_37" Text="[&quot;~~&quot;+Path.Combine(workingFilesFolder, file.Name)]" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="496,628.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:Boolean" Name="isNonformatFolder" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_32" Text="[&quot;check for a folder with todays date: : &quot;+ file.Name]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[nonformatFolderName]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[new Date.Today.ToString("ddMMyyyy")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_38" Text="[&quot;_______________&quot; +  file.Name]" />
+                          <ui:FolderExistsX DisplayName="Folder Exists" Exists="[isNonformatFolder]" sap:VirtualizedContainerService.HintSize="433.6,134.4" sap2010:WorkflowViewState.IdRef="FolderExistsX_2" Path="[path.combine(dataFolder.FullName, dataDir.ToString, nonformatFolderName)]" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="400,104.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEach.Body>
+      </ui:ForEach>
+    </Sequence>
   </Sequence>
 </Activity>
