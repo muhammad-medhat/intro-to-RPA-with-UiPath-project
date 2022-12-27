@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>872.8,1287.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1410.4,707.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Move___and_Unzup_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -94,7 +94,7 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Move_And_Unzip" sap:VirtualizedContainerService.HintSize="496,1023.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Move_And_Unzip" sap:VirtualizedContainerService.HintSize="496,642.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="upr:ILocalResource[]" Name="out_extractedFiles" />
     </Sequence.Variables>
@@ -103,15 +103,6 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Assign: remove before submit" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_1">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[in_dPath]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">c:\Users\muham\Downloads</InArgument>
-      </Assign.Value>
-    </Assign>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;------move from ------&quot;+ in_dPath]" />
     <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[in_currentPath]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="433.6,160" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[Path.Combine(in_dPath, in_fileName)]" />
     <uascw:ExtractFiles File="{x:Null}" Password="{x:Null}" CodePage="Default" Content="[out_extractedFiles]" DestinationFolder="[in_currentPath]" DestinationFolderInfo="[out_dataFolder]" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="True" FileToExtract="[Path.Combine(in_currentPath, in_fileName)]" sap:VirtualizedContainerService.HintSize="433.6,208.8" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="False">
       <sap:WorkflowViewStateService.ViewState>
@@ -121,8 +112,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uascw:ExtractFiles>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;out_datafolder&quot;+out_dataFolder.FullName]" />
-    <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_workingFilesFolder]</OutArgument>
       </Assign.To>
